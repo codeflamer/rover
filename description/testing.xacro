@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="rover">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00130991626705053 3.49863639654621E-08 -0.00547333121816359"
+        rpy="0 0 0" />
+      <mass
+        value="0.84121706270277" />
+      <inertia
+        ixx="0.000471900739611814"
+        ixy="-2.09182785151012E-08"
+        ixz="-1.51956152423411E-05"
+        iyy="0.00136894339262334"
+        iyz="7.11926294463079E-07"
+        izz="0.00158904161906431" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/White</material>
+    <!-- <mu1>0.9</mu1>
+    <mu2>0.9</mu2> -->
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
+  <link
+    name="front_right_wheel">
+    <inertial>
+      <origin
+        xyz="-8.80747558218431E-12 -4.55740722937747E-11 -0.018857267595084"
+        rpy="0 0 0" />
+      <mass
+        value="0.0169810669319342" />
+      <inertia
+        ixx="6.69284229296301E-06"
+        ixy="-1.60145737158755E-14"
+        ixz="-3.42445131865195E-14"
+        iyy="6.69284232761491E-06"
+        iyz="6.23321803047746E-15"
+        izz="9.06807752001078E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="front_right_wheel">
+    <material>Gazebo/White</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+  <joint
+    name="base_link_to_front_right_wheel"
+    type="continuous">
+    <origin
+      xyz="0.11729 -0.127 -0.025435"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+  <link
+    name="front_left_wheel">
+    <inertial>
+      <origin
+        xyz="-3.26679377993244E-11 -3.29753169214797E-11 -0.018857267595084"
+        rpy="0 0 0" />
+      <mass
+        value="0.0169810669319342" />
+      <inertia
+        ixx="6.69284228887819E-06"
+        ixy="9.91131188776749E-15"
+        ixz="-2.49917726405671E-14"
+        iyy="6.69284233169973E-06"
+        iyz="2.42270686557319E-14"
+        izz="9.06807752001078E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="front_left_wheel">
+    <material>Gazebo/White</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+
+  <joint
+    name="base_link_to_front_left_wheel"
+    type="continuous">
+    <origin
+      xyz="0.11886 0.127 -0.019032"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="bottom_right_wheel">
+    <inertial>
+      <origin
+        xyz="2.91839191701726E-11 -3.60952205624709E-11 -0.018857267595084"
+        rpy="0 0 0" />
+      <mass
+        value="0.0169810669319343" />
+      <inertia
+        ixx="6.69284232901609E-06"
+        ixy="-1.43509532055096E-14"
+        ixz="-2.68277882490126E-14"
+        iyy="6.69284229156184E-06"
+        iyz="-2.21767763461171E-14"
+        izz="9.06807752001078E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+    <gazebo reference="bottom_right_wheel">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+  
+
+  <joint
+    name="base_link_bottom_right_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.11353 -0.127 -0.029416"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="bottom_right_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="bottom_left_wheel">
+    <inertial>
+      <origin
+        xyz="-1.02049202421739E-11 4.52816482227059E-11 -0.0188572675950841"
+        rpy="0 0 0" />
+      <mass
+        value="0.0169810669319342" />
+      <inertia
+        ixx="6.69284231029886E-06"
+        ixy="-2.35935358930951E-14"
+        ixz="3.38705119976577E-14"
+        iyy="6.69284231027906E-06"
+        iyz="8.02048078850473E-15"
+        izz="9.06807752001078E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="bottom_left_wheel">
+    <material>Gazebo/White</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+  <joint
+    name="base_link_to_bottom_left_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.11544 0.127 -0.023104"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="bottom_left_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="right_tread">
+    <inertial>
+      <origin
+        xyz="-0.00948575511995705 -0.0271678464476261 -1.2490009027033E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.0467186064325548" />
+      <inertia
+        ixx="5.36340024147205E-06"
+        ixy="-8.0460039506287E-10"
+        ixz="-3.45117246555812E-23"
+        iyy="5.40913175843455E-06"
+        iyz="-4.90909677685799E-22"
+        izz="1.1290329887867E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/right_tread.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/right_tread.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="right_tread">
+    <material>Gazebo/Black</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+  <joint
+    name="base_link_right_tread"
+    type="fixed">
+    <origin
+      xyz="0.0092938 -0.1065 -0.00029628"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_tread" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+
+  <link
+    name="left_tread">
+    <inertial>
+      <origin
+        xyz="0.00948575511995705 -0.0271678464476261 5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0467186064325548" />
+      <inertia
+        ixx="5.36340024147205E-06"
+        ixy="8.04600395063051E-10"
+        ixz="1.25577536594476E-22"
+        iyy="5.40913175843456E-06"
+        iyz="6.06528303379636E-22"
+        izz="1.12903298878676E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/left_tread.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/left_tread.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="left_tread">
+    <material>Gazebo/Black</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo> 
+   
+
+  <joint
+    name="base_link_to_left_tread"
+    type="fixed">
+    <origin
+      xyz="0.010862 0.1065 0.0061069"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_tread" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+</robot>
