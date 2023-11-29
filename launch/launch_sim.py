@@ -53,7 +53,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
-        world_arg,
+        # world_arg,
         gazebo,
         spawn_entity,
     ])

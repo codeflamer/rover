@@ -34,4 +34,5 @@
                 <publish_wheel_tf>true</publish_wheel_tf>
             </plugin>
     </gazebo>  
+    
 </robot>

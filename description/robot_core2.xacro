@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
 <robot
-  name="tracked_with_tread">
+  name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+   <xacro:include filename="inertial_macros.xacro"/>
+
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+      <material name="orange">
+        <color rgba="1 0.3 0.1 1"/>
+    </material>
+
+      <material name="blue">
+        <color rgba="0.2 0.2 1 1"/>
+    </material>
+
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.00130991626705054 3.49863639634E-08 -0.00547333121816359"
+        xyz="0.00130991626705053 3.49863639634E-08 -0.00547333121816359"
         rpy="0 0 0" />
       <mass
         value="0.84121706270277" />
       <inertia
         ixx="0.000471900739611814"
-        ixy="-2.09182785151148E-08"
+        ixy="-2.09182785151114E-08"
         ixz="-1.51956152423411E-05"
         iyy="0.00136894339262334"
-        iyz="7.11926294463081E-07"
+        iyz="7.11926294463084E-07"
         izz="0.00158904161906431" />
     </inertial>
     <visual>
@@ -44,6 +61,15 @@
       </geometry>
     </collision>
   </link>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/White</material>
+    <!-- <mu1>0.9</mu1>
+    <mu2>0.9</mu2> -->
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+  </gazebo>
+
   <link
     name="front_right_wheel">
     <inertial>
@@ -54,10 +80,10 @@
         value="0.0169810669319342" />
       <inertia
         ixx="6.69284229296301E-06"
-        ixy="-1.60145736884105E-14"
-        ixz="-3.42445135185028E-14"
+        ixy="-1.60145736496364E-14"
+        ixz="-3.42445131611552E-14"
         iyy="6.69284232761491E-06"
-        iyz="6.23321795831195E-15"
+        iyz="6.23321768620798E-15"
         izz="9.06807752001078E-06" />
     </inertial>
     <visual>
@@ -84,6 +110,19 @@
       </geometry>
     </collision>
   </link>
+
+  <gazebo reference="front_right_wheel">
+    <material>Gazebo/White</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+
   <joint
     name="base_link_to_front_right_wheel"
     type="continuous">
@@ -97,21 +136,225 @@
     <axis
       xyz="0 0 -1" />
   </joint>
+
+
+  <link
+    name="front_left_wheel">
+    <inertial>
+      <origin
+        xyz="-3.26679655549E-11 -3.29753273298206E-11 -0.018857267595084"
+        rpy="0 0 0" />
+      <mass
+        value="0.0169810669319342" />
+      <inertia
+        ixx="6.69284228887819E-06"
+        ixy="9.91131187039994E-15"
+        ixz="-2.49917727791211E-14"
+        iyy="6.69284233169973E-06"
+        iyz="2.42270679512842E-14"
+        izz="9.06807752001078E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+    <gazebo reference="front_left_wheel">
+    <material>Gazebo/White</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+
+  <joint
+    name="base_link_to_front_left_wheel"
+    type="continuous">
+    <origin
+      xyz="0.1188588681311 0.127 -0.019031967432299"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="bottom_right_wheel">
+    <inertial>
+      <origin
+        xyz="2.91839330479604E-11 -3.60952205624709E-11 -0.018857267595084"
+        rpy="0 0 0" />
+      <mass
+        value="0.0169810669319343" />
+      <inertia
+        ixx="6.69284232901609E-06"
+        ixy="-1.43509531578498E-14"
+        ixz="-2.68277877855762E-14"
+        iyy="6.69284229156184E-06"
+        iyz="-2.21767763622839E-14"
+        izz="9.06807752001078E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+      <gazebo reference="bottom_right_wheel">
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+
+  <joint
+    name="base_link_bottom_right_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.113531519133702 -0.127 -0.029415678198117"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="bottom_right_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
+  <link
+    name="bottom_left_wheel">
+    <inertial>
+      <origin
+        xyz="-1.02048924865983E-11 4.52816482227059E-11 -0.018857267595084"
+        rpy="0 0 0" />
+      <mass
+        value="0.0169810669319342" />
+      <inertia
+        ixx="6.69284231029886E-06"
+        ixy="-2.35935358805743E-14"
+        ixz="3.38705121898742E-14"
+        iyy="6.69284231027906E-06"
+        iyz="8.02048066322904E-15"
+        izz="9.06807752001078E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+    <gazebo reference="bottom_left_wheel">
+    <material>Gazebo/White</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+
+  <joint
+    name="base_link_to_bottom_left_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.115435440029406 0.127 -0.023104093147408"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="bottom_left_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+
   <link
     name="right_tread">
     <inertial>
       <origin
-        xyz="0.00948575511995705 -0.0271678464476261 -1.38777878078145E-17"
+        xyz="-0.00948575511995705 -0.0271678464476261 -1.38777878078145E-17"
         rpy="0 0 0" />
       <mass
         value="0.0467186064325547" />
       <inertia
         ixx="5.36340024147205E-06"
-        ixy="8.04600395063009E-10"
-        ixz="1.91915450464644E-22"
+        ixy="-8.04600395062877E-10"
+        ixz="1.92734666229232E-23"
         iyy="5.40913175843456E-06"
-        iyz="6.06624413910749E-22"
-        izz="1.12903298878675E-07" />
+        iyz="-4.87566527484439E-22"
+        izz="1.12903298878672E-07" />
     </inertial>
     <visual>
       <origin
@@ -137,35 +380,49 @@
       </geometry>
     </collision>
   </link>
+
+   <gazebo reference="right_tread">
+    <material>Gazebo/Black</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo>
+
+
   <joint
-    name="front_right_wheel_to_right_tread"
+    name="base_link_right_tread"
     type="fixed">
     <origin
-      xyz="0.031542 0.10643 -0.2335"
-      rpy="3.1416 0 1.5708" />
+      xyz="0.00929378954049227 -0.1065 -0.000296284357995884"
+      rpy="1.5707963267949 0 0" />
     <parent
       link="base_link" />
     <child
       link="right_tread" />
-    <limit lower="0" upper="2" velocity="100" effort="100"/> 
     <axis
-      xyz="1 0 0" />   
+      xyz="0 0 0" />
   </joint>
+
+
   <link
-    name="front_left_wheel">
+    name="left_tread">
     <inertial>
       <origin
-        xyz="-3.26679377993244E-11 -3.29753255950971E-11 -0.018857267595084"
+        xyz="0.00948575511995705 -0.0271678464476261 -4.16333634234434E-17"
         rpy="0 0 0" />
       <mass
-        value="0.0169810669319342" />
+        value="0.0467186064325548" />
       <inertia
-        ixx="6.69284228887819E-06"
-        ixy="9.91131175932832E-15"
-        ixz="-2.4991772798552E-14"
-        iyy="6.69284233169973E-06"
-        iyz="2.42270676688459E-14"
-        izz="9.06807752001078E-06" />
+        ixx="5.36340024147206E-06"
+        ixy="8.04600395063005E-10"
+        ixz="2.06402228351984E-22"
+        iyy="5.40913175843456E-06"
+        iyz="6.33254843981324E-22"
+        izz="1.12903298878674E-07" />
     </inertial>
     <visual>
       <origin
@@ -173,12 +430,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_left_wheel.STL" />
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/left_tread.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="1 1 1 1" />
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
       </material>
     </visual>
     <collision>
@@ -187,38 +444,52 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_left_wheel.STL" />
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/left_tread.STL" />
       </geometry>
     </collision>
   </link>
+    <gazebo reference="left_tread">
+    <material>Gazebo/Black</material>
+    <mu1>1</mu1>
+    <mu2>1</mu2>
+    <kp>500000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <!-- <fdir1>1 0 0</fdir1> -->
+  </gazebo> 
+
+
   <joint
-    name="base_link_to_front_left_wheel"
-    type="continuous">
+    name="base_link_to_left_tread"
+    type="fixed">
     <origin
-      xyz="0.11886 0.127 -0.019032"
+      xyz="0.010862 0.1065 0.0061069"
       rpy="1.5708 0 3.1416" />
     <parent
       link="base_link" />
     <child
-      link="front_left_wheel" />
+      link="left_tread" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 0" />
   </joint>
-  <link
-    name="bottom_right_wheel">
+
+
+<link
+    name="lidar_link">
     <inertial>
       <origin
-        xyz="2.91839469257482E-11 -3.60952205624709E-11 -0.018857267595084"
+        xyz="-0.0117859751324053 0.000349788585097272 -0.0355014011507976"
         rpy="0 0 0" />
       <mass
-        value="0.0169810669319343" />
+        value="0.0941041819038163" />
       <inertia
-        ixx="6.69284232901609E-06"
-        ixy="-1.4350953219646E-14"
-        ixz="-2.68277877476378E-14"
-        iyy="6.69284229156184E-06"
-        iyz="-2.21767763368758E-14"
-        izz="9.06807752001078E-06" />
+        ixx="2.79092003984224E-05"
+        ixy="-5.25179850964557E-08"
+        ixz="3.35338182344348E-07"
+        iyy="4.43526963180453E-05"
+        iyz="-2.48732549504887E-08"
+        izz="6.94753921889465E-05" />
     </inertial>
     <visual>
       <origin
@@ -226,12 +497,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_right_wheel.STL" />
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/lidar_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="1 1 1 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -240,74 +511,61 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_right_wheel.STL" />
+          filename="file:///home/anonymous/project_ws/src/rover/meshes/lidar_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="base_link_bottom_right_wheel"
-    type="continuous">
+    name="base_link_to_lidar_link"
+    type="fixed">
     <origin
-      xyz="-0.11353 -0.127 -0.029416"
-      rpy="1.5708 0 0" />
+      xyz="-0.044901 0.0003607 0.094632"
+      rpy="0.0174533 -0.0174533 0" />
     <parent
       link="base_link" />
     <child
-      link="bottom_right_wheel" />
+      link="lidar_link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 0" />
   </joint>
-  <link
-    name="bottom_left_wheel">
-    <inertial>
-      <origin
-        xyz="-1.02049202421739E-11 4.52816447532589E-11 -0.018857267595084"
-        rpy="0 0 0" />
-      <mass
-        value="0.0169810669319342" />
-      <inertia
-        ixx="6.69284231029886E-06"
-        ixy="-2.35935358405885E-14"
-        ixz="3.38705122382542E-14"
-        iyy="6.69284231027905E-06"
-        iyz="8.0204812430973E-15"
-        izz="9.06807752001078E-06" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_left_wheel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_left_wheel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="base_link_to_bottom_left_wheel"
-    type="continuous">
-    <origin
-      xyz="-0.115435440029406 0.127 -0.023104093147408"
-      rpy="1.5707963267949 0 3.14159265358979" />
-    <parent
-      link="base_link" />
-    <child
-      link="bottom_left_wheel" />
-    <axis
-      xyz="0 0 -1" />
-  </joint>
+
+  <gazebo reference="lidar_link">
+    <material>Gazebo/Black</material>
+  </gazebo> 
+
+
+
+    <!-- <xacro:macro name="inertial_cylinder" params="mass length radius *origin">
+        <inertial>
+            <xacro:insert_block name="origin"/>
+            <mass value="${mass}" />
+            <inertia ixx="${(1/12) * mass * (3*radius*radius + length*length)}" ixy="0.0" ixz="0.0"
+                    iyy="${(1/12) * mass * (3*radius*radius + length*length)}" iyz="0.0"
+                    izz="${(1/2) * mass * (radius*radius)}" />
+        </inertial>
+    </xacro:macro>
+
+   <joint name="laser_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="laser_frame"/>
+        <origin xyz="0.1 0 0.175" rpy="0 0 0"/>
+    </joint>
+
+    <link name="laser_frame">
+        <visual>
+            <geometry>
+                <cylinder radius="0.05" length="0.04"/>
+            </geometry>
+            <material name="red"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="0.05" length="0.04"/>
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link> -->
+
 </robot>

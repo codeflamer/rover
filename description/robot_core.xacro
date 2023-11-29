@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
 <robot
-  name="Tracked-3">
+  name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- <link name="dummy_link">
+    
+  </link> -->
+
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.00130991626705053 3.49863639654621E-08 -0.00547333121816359"
+        xyz="-0.00013831907102568 1.72081362193362E-11 0.00312541383867626"
         rpy="0 0 0" />
       <mass
-        value="0.84121706270277" />
+        value="0.841217991440235" />
       <inertia
-        ixx="0.000471900739611814"
-        ixy="-2.09182785151148E-08"
-        ixz="-1.51956152423411E-05"
-        iyy="0.00136894339262334"
-        iyz="7.11926294463084E-07"
-        izz="0.00158904161906431" />
+        ixx="0.00029048014505705"
+        ixy="-9.55160061707672E-10"
+        ixz="1.5155822937521E-05"
+        iyy="0.00136894323138028"
+        iyz="-4.51615469448788E-12"
+        izz="0.00140614084506565" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -31,7 +35,7 @@
       <material
         name="">
         <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -44,22 +48,28 @@
       </geometry>
     </collision>
   </link>
-  
+
+  <!-- <joint name="dummy_joint" type="fixed">
+      <parent link="dummy_link"/>
+      <child link="base_link"/>
+        
+  </joint> -->
+
   <link
     name="front_right_wheel">
     <inertial>
       <origin
-        xyz="-8.80747558218431E-12 -4.55740722937747E-11 -0.018857267595084"
+        xyz="-1.02049202421739E-11 4.52816655699406E-11 -0.0188572675950841"
         rpy="0 0 0" />
       <mass
         value="0.0169810669319342" />
       <inertia
-        ixx="6.69284229296302E-06"
-        ixy="-1.60145736127304E-14"
-        ixz="-3.42445122120506E-14"
-        iyy="6.69284232761491E-06"
-        iyz="6.23321834661461E-15"
-        izz="9.06807752001079E-06" />
+        ixx="6.69284231029886E-06"
+        ixy="-2.3593534204749E-14"
+        ixz="3.38705114836052E-14"
+        iyy="6.69284231027905E-06"
+        iyz="8.02048076338983E-15"
+        izz="9.06807752001078E-06" />
     </inertial>
     <visual>
       <origin
@@ -72,7 +82,7 @@
       <material
         name="">
         <color
-          rgba="1 1 1 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -90,8 +100,8 @@
     name="base_link_to_front_right_wheel"
     type="continuous">
     <origin
-      xyz="0.11729 -0.127 -0.025435"
-      rpy="1.5708 -1.5708 0" />
+      xyz="0.117290515707591 -0.127 -0.025435192502925"
+      rpy="1.5707963267949 -1.5707963267949 0" />
     <parent
       link="base_link" />
     <child
@@ -104,16 +114,16 @@
     name="front_left_wheel">
     <inertial>
       <origin
-        xyz="-3.26679655549E-11 -3.29753273298206E-11 -0.018857267595084"
+        xyz="1.02049063643861E-11 4.52816638352171E-11 -0.018857267595084"
         rpy="0 0 0" />
       <mass
         value="0.0169810669319342" />
       <inertia
-        ixx="6.6928422888782E-06"
-        ixy="9.91131187080384E-15"
-        ixz="-2.49917726913834E-14"
-        iyy="6.69284233169973E-06"
-        iyz="2.42270670184219E-14"
+        ixx="6.69284231029887E-06"
+        ixy="2.35935343554851E-14"
+        ixz="-3.38705125007288E-14"
+        iyy="6.69284231027906E-06"
+        iyz="8.02048279684241E-15"
         izz="9.06807752001078E-06" />
     </inertial>
     <visual>
@@ -127,7 +137,7 @@
       <material
         name="">
         <color
-          rgba="1 1 1 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -140,12 +150,11 @@
       </geometry>
     </collision>
   </link>
-
   <joint
     name="base_link_to_front_left_wheel"
     type="continuous">
     <origin
-      xyz="0.11886 0.127 -0.019032"
+      xyz="0.11659 0.127 -0.015104"
       rpy="1.5708 0 3.1416" />
     <parent
       link="base_link" />
@@ -154,21 +163,20 @@
     <axis
       xyz="0 0 -1" />
   </joint>
-
   <link
     name="bottom_right_wheel">
     <inertial>
       <origin
-        xyz="2.91839191701726E-11 -3.60952205624709E-11 -0.018857267595084"
+        xyz="-3.26679794326878E-11 -3.29753377381614E-11 -0.018857267595084"
         rpy="0 0 0" />
       <mass
-        value="0.0169810669319343" />
+        value="0.0169810669319342" />
       <inertia
-        ixx="6.69284232901609E-06"
-        ixy="-1.43509531574459E-14"
-        ixz="-2.68277880972272E-14"
-        iyy="6.69284229156184E-06"
-        iyz="-2.21767763493592E-14"
+        ixx="6.69284228887819E-06"
+        ixy="9.91131174432663E-15"
+        ixz="-2.49917716423862E-14"
+        iyy="6.69284233169973E-06"
+        iyz="2.42270662118507E-14"
         izz="9.06807752001078E-06" />
     </inertial>
     <visual>
@@ -182,7 +190,7 @@
       <material
         name="">
         <color
-          rgba="1 1 1 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -197,10 +205,10 @@
   </link>
 
   <joint
-    name="base_link_bottom_right_wheel"
+    name="base_link_to_bottom_right_wheel"
     type="continuous">
     <origin
-      xyz="-0.11353 -0.127 -0.029416"
+      xyz="-0.1177 -0.127 -0.011032"
       rpy="1.5708 0 0" />
     <parent
       link="base_link" />
@@ -214,17 +222,17 @@
     name="bottom_left_wheel">
     <inertial>
       <origin
-        xyz="-1.02049202421739E-11 4.5281641283812E-11 -0.0188572675950841"
+        xyz="3.26679933104757E-11 -3.29753464117788E-11 -0.018857267595084"
         rpy="0 0 0" />
       <mass
         value="0.0169810669319342" />
       <inertia
-        ixx="6.69284231029886E-06"
-        ixy="-2.35935358902678E-14"
-        ixz="3.38705123274362E-14"
-        iyy="6.69284231027905E-06"
-        iyz="8.02048069556269E-15"
-        izz="9.06807752001078E-06" />
+        ixx="6.69284228887819E-06"
+        ixy="-9.91131071353208E-15"
+        ixz="2.49917735058932E-14"
+        iyy="6.69284233169972E-06"
+        iyz="2.42270622702387E-14"
+        izz="9.06807752001077E-06" />
     </inertial>
     <visual>
       <origin
@@ -237,7 +245,7 @@
       <material
         name="">
         <color
-          rgba="1 1 1 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -250,12 +258,11 @@
       </geometry>
     </collision>
   </link>
-
   <joint
     name="base_link_to_bottom_left_wheel"
     type="continuous">
     <origin
-      xyz="-0.11544 0.127 -0.023104"
+      xyz="-0.1177 0.127 -0.011032"
       rpy="1.5708 0 3.1416" />
     <parent
       link="base_link" />
@@ -264,5 +271,4 @@
     <axis
       xyz="0 0 -1" />
   </joint>
-
 </robot>
