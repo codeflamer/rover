@@ -62,13 +62,23 @@
     </collision>
   </link>
 
-  <gazebo reference="base_link">
+  <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+  <link name="base_footprint">
+
+  </link>
+
+  <!-- <gazebo reference="base_link">
     <material>Gazebo/White</material>
-    <!-- <mu1>0.9</mu1>
-    <mu2>0.9</mu2> -->
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2> 
     <kp>500000.0</kp>
     <kd>100.0</kd>
-  </gazebo>
+  </gazebo> -->
 
   <link
     name="front_right_wheel">
@@ -119,7 +129,6 @@
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <!-- <fdir1>1 0 0</fdir1> -->
   </gazebo>
 
 
@@ -186,7 +195,7 @@
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <!-- <fdir1>1 0 0</fdir1> -->
+
   </gazebo>
 
 
@@ -246,14 +255,14 @@
     </collision>
   </link>
 
-      <gazebo reference="bottom_right_wheel">
+  <gazebo reference="bottom_right_wheel">
     <mu1>1</mu1>
     <mu2>1</mu2>
     <kp>500000.0</kp>
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <!-- <fdir1>1 0 0</fdir1> -->
+  
   </gazebo>
 
 
@@ -313,7 +322,7 @@
     </collision>
   </link>
 
-    <gazebo reference="bottom_left_wheel">
+  <gazebo reference="bottom_left_wheel">
     <material>Gazebo/White</material>
     <mu1>1</mu1>
     <mu2>1</mu2>
@@ -321,7 +330,6 @@
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <!-- <fdir1>1 0 0</fdir1> -->
   </gazebo>
 
 
@@ -389,7 +397,6 @@
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <!-- <fdir1>1 0 0</fdir1> -->
   </gazebo>
 
 
@@ -448,7 +455,8 @@
       </geometry>
     </collision>
   </link>
-    <gazebo reference="left_tread">
+
+  <gazebo reference="left_tread">
     <material>Gazebo/Black</material>
     <mu1>1</mu1>
     <mu2>1</mu2>
@@ -456,7 +464,6 @@
     <kd>100.0</kd>
     <minDepth>0.001</minDepth>
     <maxVel>0.1</maxVel>
-    <!-- <fdir1>1 0 0</fdir1> -->
   </gazebo> 
 
 
@@ -534,38 +541,5 @@
   </gazebo> 
 
 
-
-    <!-- <xacro:macro name="inertial_cylinder" params="mass length radius *origin">
-        <inertial>
-            <xacro:insert_block name="origin"/>
-            <mass value="${mass}" />
-            <inertia ixx="${(1/12) * mass * (3*radius*radius + length*length)}" ixy="0.0" ixz="0.0"
-                    iyy="${(1/12) * mass * (3*radius*radius + length*length)}" iyz="0.0"
-                    izz="${(1/2) * mass * (radius*radius)}" />
-        </inertial>
-    </xacro:macro>
-
-   <joint name="laser_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="laser_frame"/>
-        <origin xyz="0.1 0 0.175" rpy="0 0 0"/>
-    </joint>
-
-    <link name="laser_frame">
-        <visual>
-            <geometry>
-                <cylinder radius="0.05" length="0.04"/>
-            </geometry>
-            <material name="red"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder radius="0.05" length="0.04"/>
-            </geometry>
-        </collision>
-        <xacro:inertial_cylinder mass="0.1" length="0.04" radius="0.05">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:inertial_cylinder>
-    </link> -->
 
 </robot>
