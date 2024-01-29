@@ -210,7 +210,7 @@
     <child
       link="front_left_wheel" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
 
 
@@ -344,7 +344,7 @@
     <child
       link="bottom_left_wheel" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
   </joint>
 
 
@@ -539,7 +539,6 @@
   <gazebo reference="lidar_link">
     <material>Gazebo/Black</material>
   </gazebo> 
-
 
 
 </robot>
