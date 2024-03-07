@@ -43,7 +43,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/base_link.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -57,7 +57,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/base_link.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -102,7 +102,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_right_wheel.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/front_right_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -116,7 +116,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_right_wheel.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/front_right_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -169,7 +169,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_left_wheel.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/front_left_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -183,7 +183,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/front_left_wheel.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/front_left_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -236,7 +236,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_right_wheel.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/bottom_right_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -250,7 +250,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_right_wheel.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/bottom_right_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -303,7 +303,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_left_wheel.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/bottom_left_wheel.STL" />
       </geometry>
       <material
         name="">
@@ -317,7 +317,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/bottom_left_wheel.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/bottom_left_wheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -370,7 +370,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/right_tread.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/right_tread.STL" />
       </geometry>
       <material
         name="">
@@ -384,7 +384,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/right_tread.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/right_tread.STL" />
       </geometry>
     </collision>
   </link>
@@ -437,7 +437,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/left_tread.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/left_tread.STL" />
       </geometry>
       <material
         name="">
@@ -451,7 +451,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/left_tread.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/left_tread.STL" />
       </geometry>
     </collision>
   </link>
@@ -504,7 +504,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/lidar_link.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/lidar_link.STL" />
       </geometry>
       <material
         name="">
@@ -518,7 +518,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="file:///home/anonymous/project_ws/src/rover/meshes/lidar_link.STL" />
+          filename="file:///home/anonymous/dev_ws/src/rover/meshes/lidar_link.STL" />
       </geometry>
     </collision>
   </link>

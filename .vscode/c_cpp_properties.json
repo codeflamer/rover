@@ -7,7 +7,7 @@
       },
       "includePath": [
         "/opt/ros/foxy/include/**",
-        "/home/anonymous/project_ws/src/rover/include/**",
+        "/home/anonymous/dev_ws/src/rover/include/**",
         "include/**",
         "/usr/include/**"
       ],

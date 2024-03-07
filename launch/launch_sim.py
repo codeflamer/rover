@@ -15,26 +15,24 @@ from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
 
+    package_name='rover' 
 
-    # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
-    # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
-
-    package_name='rover' #<--- CHANGE ME
-    world_file_name='diplom_world.world'
+    config_dir = os.path.join(get_package_share_directory(package_name),'config')
 
 
-    world_path = os.path.join(get_package_share_directory(package_name),'worlds',world_file_name)
+    rviz_congif_dir = os.path.join(config_dir,'drive_bot.rviz')
+
+    # rsp = IncludeLaunchDescription(
+    #             PythonLaunchDescriptionSource([os.path.join(
+    #                 get_package_share_directory(package_name),'launch','rsp.launch.py'
+    #             )]),launch_arguments={'use_sim_time': 'true'}.items()
+    # )
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]),launch_arguments={'use_sim_time': 'true'}.items()
+                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
     )
-
-    world_arg = DeclareLaunchArgument(
-          'world',
-          default_value=[world_path,''],
-          description='SDF world file')
 
     # Include the Gazebo launch file, provided by the gazebo_ros package
     gazebo = IncludeLaunchDescription(
@@ -43,9 +41,10 @@ def generate_launch_description():
              )
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
+    spawn_entity = Node(package='gazebo_ros', 
+                        executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity', 'my_bot'
+                                   '-entity', 'mi_bot'
                                    ],
                         output='screen')
 
@@ -77,6 +76,14 @@ def generate_launch_description():
     )
 
 
+    rviz = Node(
+        package="rviz2",
+        executable="rviz2",
+        arguments=["-d",rviz_congif_dir],
+        output="screen"
+    )
+
+
     # Launch them all!
     return LaunchDescription([
         rsp,
@@ -84,4 +91,7 @@ def generate_launch_description():
         twist_mux,
         gazebo,
         spawn_entity,
+        diff_drive_spawner,
+        joint_broad_spawner
+        # rviz
     ])
