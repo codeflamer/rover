@@ -22,7 +22,7 @@ diff_cont:
     left_wheel_names: ['base_link_to_front_left_wheel']
     right_wheel_names: ['base_link_to_front_right_wheel']
     
-    wheel_separation: 0.154 #1.49
+    wheel_separation: 0.154 #1.49 
     wheel_radius: 0.03 #0.035
 
     use_stamped_vel: false

@@ -106,7 +106,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rsp,
-        # joystick,
+        joystick,
         # twist_mux,
         delayed_controller_manager,
         delayed_diff_drive_spawner,
