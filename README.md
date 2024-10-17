@@ -7,17 +7,17 @@ This project demonstrates the development of an autonomous robot capable of navi
 
 ## **Table of Contents**
 
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [System Architecture](#system-architecture)
-4. [Hardware Setup](#hardware-setup)
-5. [Software Components](#software-components)
-6. [Installation Guide](#installation-guide)
-7. [Usage](#usage)
-8. [Simulation and Real-World Results](#simulation-and-real-world-results)
-9. [Schematic Diagrams and Communication Flow](#schematic-diagrams-and-communication-flow)
-10. [Testing](#testing)
-11. [Acknowledgements](#acknowledgements)
+1. [Introduction](#1-introduction)
+2. [Features](#2-features)
+3. [System Architecture](#3-system-architecture)
+4. [Hardware Setup](#4-hardware-setup)
+5. [Software Components](#5-software-components)
+6. [Installation Guide](#6-installation-guide)
+7. [Usage](#7-usage)
+8. [Simulation and Real-World Results](#8-simulation-and-real-world-results)
+9. [Schematic Diagrams and Communication Flow](#9-schematic-diagrams-and-communication-flow)
+10. [Testing](#10-testing)
+11. [Acknowledgements](#11-acknowledgements)
 
 ---
 
