@@ -7,3 +7,19 @@
 /description/robot_core.xacro
 
 /config/nav2_params.yaml
+
+/assets/videos/SIMULATION.MOV
+
+/assets/videos/PHYSICAL_AUTONOMOUS_NAVIGATION.MOV
+
+/assets/videos/PROCESSING_MAPPING_CLASS_ROOM.MOV
+
+/assets/pictures/rover-solidworks.png
+
+/assets/pictures/Robot_RVIZ_FIRST_SPAWN.png
+
+/assets/pictures/ROBOT_GAZEBO_FIRS_SPAWN.png
+
+/assets/pictures/ROBOT_RVIZ_RED_DOTS.png
+
+/assets/pictures/ROBOT_GAZEBO_CLOSED_ENVIRONMENT.png
