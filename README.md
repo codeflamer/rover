@@ -158,7 +158,7 @@ ros2 launch rover launch_sim.py
 
 Below are images and a video showcasing the robot navigating in a simulated environment:
 
-**MAP SIMULATED ENVIROMNENT**:  
+**MAP of the indoor environment obtained using slam_toolbox**:  
 <img src="assets/pictures/ROBOT_RVIZ_MAP_SLAM.png" alt="Map Construction" width="530" height="400">
 
 **Simulation Video**:  
@@ -168,13 +168,13 @@ Below are images and a video showcasing the robot navigating in a simulated envi
 
 The real-world tests demonstrated the robot successfully navigating through obstacles in various environments:
 
-**MAP SIMULATED ENVIROMNENT**:  
+**PICTURE OF INDOOR ENVIROMNENT**:  
 <img src="assets/pictures/CLASS_ROOM_MAP.jpg" alt="Map Construction" width="530" height="390">
 
-**SLAM map construction**:  
+**SLAM for map construction**:  
 ![Map Construction](assets/videos/PROCESSING_MAPPING_CLASS_ROOM.gif)
 
-**Real-World Video**:  
+**Real-World Result Video**:  
 ![Robot in Action](assets/videos/PHYSICAL_AUTONOMOUS_NAVIGATION.gif)
 
 ---
@@ -186,7 +186,7 @@ The real-world tests demonstrated the robot successfully navigating through obst
 Below is a diagram of the hardware setup showing connections between the Raspberry Pi, Arduino, motors, and encoder:
 
 **Hardware Schematic**:  
-<img src="assets/pictures/SCHEMATIC_DIAGRAM.png" alt="Hardware Diagram" width="530" height="390">
+<img src="assets/pictures/SCHEMATIC_DIAGRAM.png" alt="Hardware Diagram" width="600" height="400">
 
 ### **9.2 Communication Flow**
 
