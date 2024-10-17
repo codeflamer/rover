@@ -186,7 +186,7 @@ The real-world tests demonstrated the robot successfully navigating through obst
 Below is a diagram of the hardware setup showing connections between the Raspberry Pi, Arduino, motors, and encoder:
 
 **Hardware Schematic**:  
-<img src="assets/pictures/SCHEMATIC_DIAGRAM.png" alt="Hardware Diagram" width="600" height="400">
+<img src="assets/pictures/SCHEMATIC_DIAGRAM.png" alt="Hardware Diagram" width="600" height="700">
 
 ### **9.2 Communication Flow**
 
